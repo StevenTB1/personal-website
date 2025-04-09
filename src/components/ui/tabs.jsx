@@ -5,10 +5,10 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
-function Tabs({
+const Tabs = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
@@ -17,10 +17,10 @@ function Tabs({
   );
 }
 
-function TabsList({
+const TabsList = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -32,10 +32,10 @@ function TabsList({
   );
 }
 
-function TabsTrigger({
+const TabsTrigger = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
@@ -47,10 +47,10 @@ function TabsTrigger({
   );
 }
 
-function TabsContent({
+const TabsContent = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"

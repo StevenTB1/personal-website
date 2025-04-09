@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
+import { cn } from '@/utils';
 
-const Navbar = () => {
+export const Navbar = () => {
   const router = useRouter();
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -18,44 +19,44 @@ const Navbar = () => {
   const isActive = (path) => router.pathname === path;
 
   return (
-    <header className="py-6">
-      <nav className="flex items-center justify-between">
-        <Link href="/" className="font-bold text-xl">
+    <header className="py-4 fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <nav className="flex items-center justify-between max-w-6xl mx-auto px-8">
+        <Link href="/" className="font-bold text-xl text-black">
           Steven Chow
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               href={link.path}
-              className={`transition-colors hover:text-primary ${
-                isActive(link.path) ? 'font-semibold text-primary' : ''
-              }`}
+              className={cn(
+                'transition-colors hover:text-primary text-gray-800',
+                isActive(link.path) ? 'font-semibold text-primary' : '',
+              )}
             >
               {link.name}
             </Link>
           ))}
         </div>
 
-        {/* Mobile Navigation */}
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-black">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[250px]">
+          <SheetContent side="right" className="w-[250px] bg-white">
             <div className="flex flex-col gap-4 mt-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`text-lg transition-colors hover:text-primary ${
-                    isActive(link.path) ? 'font-semibold text-primary' : ''
-                  }`}
+                  className={cn(
+                    'text-lg transition-colors hover:text-primary text-gray-800',
+                    isActive(link.path) ? 'font-semibold text-primary' : '',
+                  )}
                   onClick={() => setSheetOpen(false)}
                 >
                   {link.name}
@@ -68,5 +69,3 @@ const Navbar = () => {
     </header>
   );
 };
-
-export default Navbar;

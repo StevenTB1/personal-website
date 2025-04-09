@@ -6,29 +6,29 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-function DropdownMenu({
+const DropdownMenu = ({
   ...props
-}) {
+}) => {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
-function DropdownMenuPortal({
+const DropdownMenuPortal = ({
   ...props
-}) {
+}) => {
   return (<DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />);
 }
 
-function DropdownMenuTrigger({
+const DropdownMenuTrigger = ({
   ...props
-}) {
+}) => {
   return (<DropdownMenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />);
 }
 
-function DropdownMenuContent({
+const DropdownMenuContent = ({
   className,
   sideOffset = 4,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
@@ -43,18 +43,18 @@ function DropdownMenuContent({
   );
 }
 
-function DropdownMenuGroup({
+const DropdownMenuGroup = ({
   ...props
-}) {
+}) => {
   return (<DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />);
 }
 
-function DropdownMenuItem({
+const DropdownMenuItem = ({
   className,
   inset,
   variant = "default",
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.Item
       data-slot="dropdown-menu-item"
@@ -68,12 +68,12 @@ function DropdownMenuItem({
   );
 }
 
-function DropdownMenuCheckboxItem({
+const DropdownMenuCheckboxItem = ({
   className,
   children,
   checked,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
@@ -94,17 +94,17 @@ function DropdownMenuCheckboxItem({
   );
 }
 
-function DropdownMenuRadioGroup({
+const DropdownMenuRadioGroup = ({
   ...props
-}) {
+}) => {
   return (<DropdownMenuPrimitive.RadioGroup data-slot="dropdown-menu-radio-group" {...props} />);
 }
 
-function DropdownMenuRadioItem({
+const DropdownMenuRadioItem = ({
   className,
   children,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
@@ -124,11 +124,11 @@ function DropdownMenuRadioItem({
   );
 }
 
-function DropdownMenuLabel({
+const DropdownMenuLabel = ({
   className,
   inset,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.Label
       data-slot="dropdown-menu-label"
@@ -138,10 +138,10 @@ function DropdownMenuLabel({
   );
 }
 
-function DropdownMenuSeparator({
+const DropdownMenuSeparator = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
@@ -150,10 +150,10 @@ function DropdownMenuSeparator({
   );
 }
 
-function DropdownMenuShortcut({
+const DropdownMenuShortcut = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <span
       data-slot="dropdown-menu-shortcut"
@@ -162,18 +162,18 @@ function DropdownMenuShortcut({
   );
 }
 
-function DropdownMenuSub({
+const DropdownMenuSub = ({
   ...props
-}) {
+}) => {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />;
 }
 
-function DropdownMenuSubTrigger({
+const DropdownMenuSubTrigger = ({
   className,
   inset,
   children,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.SubTrigger
       data-slot="dropdown-menu-sub-trigger"
@@ -189,10 +189,10 @@ function DropdownMenuSubTrigger({
   );
 }
 
-function DropdownMenuSubContent({
+const DropdownMenuSubContent = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"

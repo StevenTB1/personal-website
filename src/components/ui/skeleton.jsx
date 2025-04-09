@@ -1,9 +1,11 @@
+'use client';
+
 import { cn } from "@/lib/utils"
 
-function Skeleton({
+const Skeleton = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <div
       data-slot="skeleton"

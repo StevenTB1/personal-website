@@ -13,10 +13,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
-function Command({
+const Command = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <CommandPrimitive
       data-slot="command"
@@ -28,12 +28,12 @@ function Command({
   );
 }
 
-function CommandDialog({
+const CommandDialog = ({
   title = "Command Palette",
   description = "Search for a command to run...",
   children,
   ...props
-}) {
+}) => {
   return (
     <Dialog {...props}>
       <DialogHeader className="sr-only">
@@ -50,10 +50,10 @@ function CommandDialog({
   );
 }
 
-function CommandInput({
+const CommandInput = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <div
       data-slot="command-input-wrapper"
@@ -70,10 +70,10 @@ function CommandInput({
   );
 }
 
-function CommandList({
+const CommandList = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <CommandPrimitive.List
       data-slot="command-list"
@@ -82,16 +82,16 @@ function CommandList({
   );
 }
 
-function CommandEmpty({
+const CommandEmpty = ({
   ...props
-}) {
+}) => {
   return (<CommandPrimitive.Empty data-slot="command-empty" className="py-6 text-center text-sm" {...props} />);
 }
 
-function CommandGroup({
+const CommandGroup = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <CommandPrimitive.Group
       data-slot="command-group"
@@ -103,10 +103,10 @@ function CommandGroup({
   );
 }
 
-function CommandSeparator({
+const CommandSeparator = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <CommandPrimitive.Separator
       data-slot="command-separator"
@@ -115,10 +115,10 @@ function CommandSeparator({
   );
 }
 
-function CommandItem({
+const CommandItem = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <CommandPrimitive.Item
       data-slot="command-item"
@@ -130,10 +130,10 @@ function CommandItem({
   );
 }
 
-function CommandShortcut({
+const CommandShortcut = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <span
       data-slot="command-shortcut"

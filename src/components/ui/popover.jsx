@@ -5,24 +5,24 @@ import * as PopoverPrimitive from "@radix-ui/react-popover"
 
 import { cn } from "@/lib/utils"
 
-function Popover({
+const Popover = ({
   ...props
-}) {
+}) => {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
 
-function PopoverTrigger({
+const PopoverTrigger = ({
   ...props
-}) {
+}) => {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
-function PopoverContent({
+const PopoverContent = ({
   className,
   align = "center",
   sideOffset = 4,
   ...props
-}) {
+}) => {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
@@ -38,9 +38,9 @@ function PopoverContent({
   );
 }
 
-function PopoverAnchor({
+const PopoverAnchor = ({
   ...props
-}) {
+}) => {
   return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />;
 }
 

@@ -1,4 +1,4 @@
-import Layout from '@/components/layout/Layout';
+import { Layout } from '@/components/layout/Layout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -125,10 +125,12 @@ const Landing = () => {
   );
 };
 
-export default function Experience() {
+const ExperiencePage = () => {
   return (
     <Layout title="Steven Chow | Experience" description="Steven Chow's Experience">
       <Landing />
     </Layout>
   );
-}
+};
+
+export default ExperiencePage;

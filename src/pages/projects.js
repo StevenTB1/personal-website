@@ -1,5 +1,5 @@
-import Layout from '@/components/layout/Layout';
-import Contact from '@/components/common/Contact';
+import { Layout } from '@/components/layout/Layout';
+import { Contact } from '@/components/layout/Contact';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import {
@@ -125,7 +125,7 @@ const ProjectDisplay = () => {
   );
 };
 
-export default function Projects() {
+const ProjectsPage = () => {
   return (
     <Layout title="Steven Chow | Projects" description="Steven Chow's Projects">
       <Header />
@@ -133,4 +133,6 @@ export default function Projects() {
       <Contact />
     </Layout>
   );
-}
+};
+
+export default ProjectsPage;

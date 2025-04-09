@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from "react"
 import {
   ChevronLeftIcon,
@@ -8,10 +10,10 @@ import {
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button";
 
-function Pagination({
+const Pagination = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <nav
       role="navigation"
@@ -22,10 +24,10 @@ function Pagination({
   );
 }
 
-function PaginationContent({
+const PaginationContent = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <ul
       data-slot="pagination-content"
@@ -34,18 +36,18 @@ function PaginationContent({
   );
 }
 
-function PaginationItem({
+const PaginationItem = ({
   ...props
-}) {
+}) => {
   return <li data-slot="pagination-item" {...props} />;
 }
 
-function PaginationLink({
+const PaginationLink = ({
   className,
   isActive,
   size = "icon",
   ...props
-}) {
+}) => {
   return (
     <a
       aria-current={isActive ? "page" : undefined}
@@ -59,10 +61,10 @@ function PaginationLink({
   );
 }
 
-function PaginationPrevious({
+const PaginationPrevious = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <PaginationLink
       aria-label="Go to previous page"
@@ -75,10 +77,10 @@ function PaginationPrevious({
   );
 }
 
-function PaginationNext({
+const PaginationNext = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <PaginationLink
       aria-label="Go to next page"
@@ -91,10 +93,10 @@ function PaginationNext({
   );
 }
 
-function PaginationEllipsis({
+const PaginationEllipsis = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <span
       aria-hidden

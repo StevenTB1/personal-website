@@ -6,48 +6,48 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-function ContextMenu({
+const ContextMenu = ({
   ...props
-}) {
+}) => {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }
 
-function ContextMenuTrigger({
+const ContextMenuTrigger = ({
   ...props
-}) {
+}) => {
   return (<ContextMenuPrimitive.Trigger data-slot="context-menu-trigger" {...props} />);
 }
 
-function ContextMenuGroup({
+const ContextMenuGroup = ({
   ...props
-}) {
+}) => {
   return (<ContextMenuPrimitive.Group data-slot="context-menu-group" {...props} />);
 }
 
-function ContextMenuPortal({
+const ContextMenuPortal = ({
   ...props
-}) {
+}) => {
   return (<ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />);
 }
 
-function ContextMenuSub({
+const ContextMenuSub = ({
   ...props
-}) {
+}) => {
   return <ContextMenuPrimitive.Sub data-slot="context-menu-sub" {...props} />;
 }
 
-function ContextMenuRadioGroup({
+const ContextMenuRadioGroup = ({
   ...props
-}) {
+}) => {
   return (<ContextMenuPrimitive.RadioGroup data-slot="context-menu-radio-group" {...props} />);
 }
 
-function ContextMenuSubTrigger({
+const ContextMenuSubTrigger = ({
   className,
   inset,
   children,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.SubTrigger
       data-slot="context-menu-sub-trigger"
@@ -63,10 +63,10 @@ function ContextMenuSubTrigger({
   );
 }
 
-function ContextMenuSubContent({
+const ContextMenuSubContent = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.SubContent
       data-slot="context-menu-sub-content"
@@ -78,10 +78,10 @@ function ContextMenuSubContent({
   );
 }
 
-function ContextMenuContent({
+const ContextMenuContent = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Content
@@ -95,12 +95,12 @@ function ContextMenuContent({
   );
 }
 
-function ContextMenuItem({
+const ContextMenuItem = ({
   className,
   inset,
   variant = "default",
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.Item
       data-slot="context-menu-item"
@@ -114,12 +114,12 @@ function ContextMenuItem({
   );
 }
 
-function ContextMenuCheckboxItem({
+const ContextMenuCheckboxItem = ({
   className,
   children,
   checked,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.CheckboxItem
       data-slot="context-menu-checkbox-item"
@@ -140,11 +140,11 @@ function ContextMenuCheckboxItem({
   );
 }
 
-function ContextMenuRadioItem({
+const ContextMenuRadioItem = ({
   className,
   children,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.RadioItem
       data-slot="context-menu-radio-item"
@@ -164,11 +164,11 @@ function ContextMenuRadioItem({
   );
 }
 
-function ContextMenuLabel({
+const ContextMenuLabel = ({
   className,
   inset,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.Label
       data-slot="context-menu-label"
@@ -181,10 +181,10 @@ function ContextMenuLabel({
   );
 }
 
-function ContextMenuSeparator({
+const ContextMenuSeparator = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <ContextMenuPrimitive.Separator
       data-slot="context-menu-separator"
@@ -193,10 +193,10 @@ function ContextMenuSeparator({
   );
 }
 
-function ContextMenuShortcut({
+const ContextMenuShortcut = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <span
       data-slot="context-menu-shortcut"

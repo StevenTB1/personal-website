@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Navbar from '@/components/common/Navbar';
+import { Navbar } from '@/components/layout/Navbar';
 
-export default function Layout({ children, title, description }) {
+export const Layout = ({ children, title, description }) => {
   return (
     <>
       <Head>
@@ -18,4 +18,4 @@ export default function Layout({ children, title, description }) {
       </div>
     </>
   );
-}
+};

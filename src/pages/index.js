@@ -1,162 +1,346 @@
-import { Geist, Geist_Mono } from 'next/font/google';
-import Layout from '@/components/layout/Layout';
-import Contact from '@/components/common/Contact';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Contact } from '@/components/layout/Contact';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import pfp from '../../public/images/pfp.png';
+import {
+  TypographyHero,
+  TypographySubtitle,
+  TypographyText,
+  TypographySectionTitle,
+  TypographyP,
+} from '@/components/base/Typography';
+import { NextSeo } from 'next-seo';
+import { FaReact, FaGitAlt, FaDocker, FaFigma, FaUser, FaGraduationCap } from 'react-icons/fa';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiAutodesk, SiArduino } from 'react-icons/si';
+import { DiVisualstudio } from 'react-icons/di';
+import { TbBrandThreejs } from 'react-icons/tb';
+import { motion } from 'framer-motion';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
-// Tech Card Component
-const TechCard = ({ title, description, technologies }) => {
+const HeroSlide = () => {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <section className="min-h-screen flex flex-col justify-center py-20 px-6 relative">
+      <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <TypographyHero>Steven Chow</TypographyHero>
+          <motion.h2
+            className="text-4xl text-pink-500 font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            Mechatronics Engineer
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <TypographyP className="text-lg max-w-xl text-slate-300">
+              Passionate mechatronics engineering student at the University of Waterloo, pursuing my
+              undergrad with a focus on innovative solutions.
+            </TypographyP>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+          >
+            <TypographyP className="text-lg max-w-xl text-slate-400">
+              Experienced in front-end development with React and Tailwind CSS. Proficient in
+              AutoCAD and Solidworks for mechanical design, with hands-on manufacturing experience.
+            </TypographyP>
+          </motion.div>
+          <motion.div
+            className="flex gap-4 pt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+          >
+            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-10 w-10">
+                <FaLinkedin className="h-6 w-6" />
+              </Button>
+            </Link>
+            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-10 w-10">
+                <FaGithub className="h-6 w-6" />
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="relative hidden md:block"
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{
+            duration: 1,
+            type: 'spring',
+            stiffness: 100,
+          }}
+        >
+          <div className="relative h-[400px] w-[400px] mx-auto overflow-hidden rounded-full border-4 border-pink-500/30 shadow-xl shadow-pink-500/20">
+            <Image src={pfp} alt="Steven Chow" fill className="object-cover" priority />
+          </div>
+        </motion.div>
+      </div>
+      <div className="w-full border-b border-gray-700 absolute bottom-0 left-0"></div>
+    </section>
   );
 };
 
-// Hero Component
-const Hero = () => {
+const AboutSlide = () => {
   return (
-    <section className="flex flex-col items-center text-center gap-6 py-20 md:py-32">
-      <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-        Hi, I'm <span className="text-primary">Steven Chow</span> 👋
-      </h1>
+    <section className="min-h-screen flex flex-col justify-center py-20 px-6 bg-gradient-to-b from-slate-950 to-slate-900">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <motion.div
+          className="text-center space-y-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <TypographySectionTitle>About Me</TypographySectionTitle>
+          <TypographySubtitle className="max-w-2xl mx-auto">
+            A blend of engineering precision and creative problem-solving
+          </TypographySubtitle>
+        </motion.div>
 
-      <p className="text-xl md:text-2xl max-w-2xl text-muted-foreground">
-        I'm a software engineer passionate about building beautiful and functional web applications.
-      </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-slate-900 border-slate-800 h-full hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FaUser className="text-pink-500" /> Background
+                </CardTitle>
+                <CardDescription>My journey so far</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <TypographyText>
+                  I'm a mechatronics engineer with a passion for building innovative solutions. I
+                  have experience with both mechanical design and software development, combining
+                  these disciplines to create meaningful projects.
+                </TypographyText>
+                <TypographyText>
+                  My approach combines technical expertise with creative problem-solving, allowing
+                  me to develop solutions that are both functional and user-friendly. I'm
+                  particularly interested in robotics, automation, and interactive systems.
+                </TypographyText>
+                <TypographyText>
+                  When not coding or designing, I enjoy hiking, photography, and building DIY
+                  electronics projects that blend art and technology.
+                </TypographyText>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-      <div className="flex flex-col sm:flex-row gap-4 mt-4">
-        <Button asChild size="lg">
-          <Link href="/projects">
-            View My Projects
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-
-        <Button variant="outline" size="lg" asChild>
-          <Link href="/experience">My Experience</Link>
-        </Button>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-slate-900 border-slate-800 h-full hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FaGraduationCap className="text-blue-500" /> Education
+                </CardTitle>
+                <CardDescription>My academic qualifications</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <TypographyText>
+                  I'm currently pursuing my degree in Mechatronics Engineering at the University of
+                  Waterloo. My education combines mechanical engineering, electronics, computer
+                  science, and control systems, giving me a well-rounded foundation.
+                </TypographyText>
+                <div className="pl-4 border-l-2 border-blue-500/30 space-y-2">
+                  <div>
+                    <h4 className="font-medium">
+                      Bachelor of Applied Science, Mechatronics Engineering
+                    </h4>
+                    <p className="text-sm text-slate-400">University of Waterloo • 2020 - 2024</p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Robotics Certification</h4>
+                    <p className="text-sm text-slate-400">RoboAcademy • 2022</p>
+                  </div>
+                </div>
+                <TypographyText>
+                  Relevant coursework: Control Systems, Embedded Programming, Circuit Design,
+                  Mechanical Design, Machine Learning Fundamentals, and Robotics.
+                </TypographyText>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
-// About Component
-const About = () => {
-  return (
-    <section className="py-16" id="about">
-      <div className="flex flex-col gap-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">About Me</h2>
-          <p className="text-muted-foreground">A brief introduction to who I am</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Background</CardTitle>
-              <CardDescription>My journey so far</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>
-                I'm a software engineer with a passion for building modern web applications. I have
-                experience with both frontend and backend technologies, and I enjoy creating clean,
-                efficient, and user-friendly solutions.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Education</CardTitle>
-              <CardDescription>My academic qualifications</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>
-                I hold a Bachelor's degree in Computer Science with a focus on software development.
-                Throughout my education, I've developed strong problem-solving skills and a solid
-                foundation in programming principles.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Tools Component
-const Tools = () => {
+const TechSection = () => {
   const technologies = {
-    frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI'],
-    backend: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Firebase'],
-    tools: ['Git', 'VS Code', 'Docker', 'Figma', 'Vercel'],
+    frontend: [
+      { name: 'React', icon: FaReact, color: 'text-blue-400' },
+      { name: 'Next.js', icon: SiNextdotjs, color: 'text-gray-200' },
+      { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
+      { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+      { name: 'Three.js', icon: TbBrandThreejs, color: 'text-white' },
+    ],
+    mechanical: [
+      { name: 'AutoCAD', icon: SiAutodesk, color: 'text-red-500' },
+      { name: 'SolidWorks', icon: SiAutodesk, color: 'text-blue-600' },
+      { name: 'Fusion 360', icon: SiAutodesk, color: 'text-orange-500' },
+      { name: 'CNC Machining', icon: SiAutodesk, color: 'text-green-500' },
+    ],
+    tools: [
+      { name: 'Git', icon: FaGitAlt, color: 'text-orange-600' },
+      { name: 'VS Code', icon: DiVisualstudio, color: 'text-blue-500' },
+      { name: 'Docker', icon: FaDocker, color: 'text-blue-500' },
+      { name: 'Figma', icon: FaFigma, color: 'text-purple-500' },
+      { name: 'Arduino', icon: SiArduino, color: 'text-teal-500' },
+    ],
   };
 
   return (
-    <section className="py-16" id="tools">
-      <div className="flex flex-col gap-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Tech Stack</h2>
-          <p className="text-muted-foreground">Technologies and tools I work with</p>
-        </div>
+    <section className="min-h-screen flex flex-col justify-center py-20 px-6 bg-gradient-to-b from-slate-900 to-slate-950">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <motion.div
+          className="text-center space-y-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <TypographySectionTitle>Tech Stack</TypographySectionTitle>
+          <TypographySubtitle className="max-w-2xl mx-auto">
+            Technologies and tools I work with
+          </TypographySubtitle>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <TechCard
-            title="Frontend"
-            description="Web technologies I use"
-            technologies={technologies.frontend}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-slate-900 border-slate-800 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 h-full">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FaReact className="text-blue-400" /> Frontend
+                </CardTitle>
+                <CardDescription>Web technologies I use</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {technologies.frontend.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
+                    >
+                      <tech.icon className={`h-6 w-6 ${tech.color}`} />
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <TechCard
-            title="Backend"
-            description="Server-side technologies"
-            technologies={technologies.backend}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-slate-900 border-slate-800 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300 h-full">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <SiAutodesk className="text-red-500" /> Mechanical
+                </CardTitle>
+                <CardDescription>Design and manufacturing tools</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {technologies.mechanical.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
+                    >
+                      <tech.icon className={`h-6 w-6 ${tech.color}`} />
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <TechCard
-            title="Tools & Others"
-            description="Development tools I use daily"
-            technologies={technologies.tools}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-slate-900 border-slate-800 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300 h-full">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FaGitAlt className="text-orange-500" /> Tools & Others
+                </CardTitle>
+                <CardDescription>Development tools I use daily</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {technologies.tools.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
+                    >
+                      <tech.icon className={`h-6 w-6 ${tech.color}`} />
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-export default function Home() {
+const seoBase = {
+  title: 'Steven Chow | Mechatronics Engineer',
+  description:
+    "Steven Chow's personal website showcasing mechatronics engineering and software development skills.",
+};
+
+export const Page = () => {
   return (
-    <Layout title="Steven Chow | Home" description="Steven Chow's Personal Website">
-      <Hero />
-      <About />
-      <Tools />
-      <Contact />
-    </Layout>
+    <>
+      <NextSeo {...seoBase} />
+      <main className="bg-slate-950">
+        <HeroSlide />
+        <AboutSlide />
+        <TechSection />
+        <Contact />
+      </main>
+    </>
   );
-}
+};
+
+export default Page;

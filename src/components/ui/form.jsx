@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { Controller, FormProvider, useFormContext, useFormState } from "react-hook-form";
@@ -46,10 +48,10 @@ const useFormField = () => {
 
 const FormItemContext = React.createContext({})
 
-function FormItem({
+const FormItem = ({
   className,
   ...props
-}) {
+}) => {
   const id = React.useId()
 
   return (
@@ -59,10 +61,10 @@ function FormItem({
   );
 }
 
-function FormLabel({
+const FormLabel = ({
   className,
   ...props
-}) {
+}) => {
   const { error, formItemId } = useFormField()
 
   return (
@@ -75,9 +77,9 @@ function FormLabel({
   );
 }
 
-function FormControl({
+const FormControl = ({
   ...props
-}) {
+}) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
   return (
@@ -94,10 +96,10 @@ function FormControl({
   );
 }
 
-function FormDescription({
+const FormDescription = ({
   className,
   ...props
-}) {
+}) => {
   const { formDescriptionId } = useFormField()
 
   return (
@@ -109,10 +111,10 @@ function FormDescription({
   );
 }
 
-function FormMessage({
+const FormMessage = ({
   className,
   ...props
-}) {
+}) => {
   const { error, formMessageId } = useFormField()
   const body = error ? String(error?.message ?? "") : props.children
 

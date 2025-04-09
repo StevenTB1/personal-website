@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from "react"
 import { cva } from "class-variance-authority";
 
@@ -19,11 +21,11 @@ const alertVariants = cva(
   }
 )
 
-function Alert({
+const Alert = ({
   className,
   variant,
   ...props
-}) {
+}) => {
   return (
     <div
       data-slot="alert"
@@ -33,10 +35,10 @@ function Alert({
   );
 }
 
-function AlertTitle({
+const AlertTitle = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <div
       data-slot="alert-title"
@@ -45,10 +47,10 @@ function AlertTitle({
   );
 }
 
-function AlertDescription({
+const AlertDescription = ({
   className,
   ...props
-}) {
+}) => {
   return (
     <div
       data-slot="alert-description"

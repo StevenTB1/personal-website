@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 const CarouselContext = React.createContext(null)
 
-function useCarousel() {
+const useCarousel = () => {
   const context = React.useContext(CarouselContext)
 
   if (!context) {
@@ -18,7 +18,7 @@ function useCarousel() {
   return context
 }
 
-function Carousel({
+const Carousel = ({
   orientation = "horizontal",
   opts,
   setApi,
@@ -26,7 +26,7 @@ function Carousel({
   className,
   children,
   ...props
-}) {
+}) => {
   const [carouselRef, api] = useEmblaCarousel({
     ...opts,
     axis: orientation === "horizontal" ? "x" : "y",
@@ -100,10 +100,10 @@ function Carousel({
   );
 }
 
-function CarouselContent({
+const CarouselContent = ({
   className,
   ...props
-}) {
+}) => {
   const { carouselRef, orientation } = useCarousel()
 
   return (
@@ -122,10 +122,10 @@ function CarouselContent({
   );
 }
 
-function CarouselItem({
+const CarouselItem = ({
   className,
   ...props
-}) {
+}) => {
   const { orientation } = useCarousel()
 
   return (
@@ -142,12 +142,12 @@ function CarouselItem({
   );
 }
 
-function CarouselPrevious({
+const CarouselPrevious = ({
   className,
   variant = "outline",
   size = "icon",
   ...props
-}) {
+}) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -167,12 +167,12 @@ function CarouselPrevious({
   );
 }
 
-function CarouselNext({
+const CarouselNext = ({
   className,
   variant = "outline",
   size = "icon",
   ...props
-}) {
+}) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
