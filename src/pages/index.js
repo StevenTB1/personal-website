@@ -28,7 +28,6 @@ import { DiVisualstudio } from 'react-icons/di';
 import { TbBrandThreejs } from 'react-icons/tb';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { BackgroundAnimation } from '@/components/animations/Landing';
-import { useRef } from 'react';
 
 const HeroSlide = () => {
   return (
