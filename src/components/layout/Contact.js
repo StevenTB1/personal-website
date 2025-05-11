@@ -1,67 +1,53 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaEnvelope,
-  FaBriefcase,
-  FaCalendarAlt,
-} from 'react-icons/fa';
-import {
-  TypographySectionTitle,
+  TypographyLabel,
   TypographyP,
+  TypographySectionTitle,
   TypographySubtitle,
 } from '@/components/base/Typography';
-import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { FaBriefcase, FaCalendarAlt, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export const Contact = () => {
   const socialLinks = [
     {
-      name: 'Email',
-      href: 'mailto:steven.chow@example.com',
-      icon: FaEnvelope,
-      color: 'text-red-500',
-      description: 'Fastest way to reach me for opportunities',
-    },
-    {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/stevenchow',
+      href: 'https://www.linkedin.com/in/stevenchow0812/',
       icon: FaLinkedin,
       color: 'text-blue-500',
       description: 'Connect with me professionally',
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/stevenchow',
+      href: 'https://github.com/StevenTB1',
       icon: FaGithub,
       color: 'text-gray-600',
       description: 'Check out my code and projects',
     },
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/stevenchow',
-      icon: FaTwitter,
-      color: 'text-sky-500',
-      description: 'Follow me for updates and thoughts',
+      name: 'Email',
+      href: 'mailto:s9chow@uwaterloo.ca',
+      icon: FaEnvelope,
+      color: 'text-red-500',
+      description: 'Fastest way to reach me for opportunities',
     },
   ];
 
   const collaborationTypes = [
-    {
-      title: 'Engineering Projects',
-      description:
-        "Looking for a mechatronics engineer to help with automation, robotics, or product design? Let's collaborate on innovative solutions.",
-      icon: FaBriefcase,
-      color: 'text-purple-500',
-    },
     {
       title: 'Web Development',
       description:
         'Need a modern, responsive web application? I can help build user-friendly interfaces with React, Next.js, and Tailwind CSS.',
       icon: FaGithub,
       color: 'text-blue-500',
+    },
+    {
+      title: 'Engineering Projects',
+      description:
+        "Looking for a mechatronics engineer to help with automation, robotics, or product design? Let's collaborate on innovative solutions.",
+      icon: FaBriefcase,
+      color: 'text-purple-500',
     },
     {
       title: 'Availability',
@@ -73,7 +59,7 @@ export const Contact = () => {
   ];
 
   return (
-    <section className="py-16 min-h-screen flex flex-col justify-center bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-16 min-h-screen flex flex-col justify-center bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
         <motion.div
           className="text-center space-y-4"
@@ -100,7 +86,9 @@ export const Contact = () => {
           viewport={{ once: true }}
         >
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-800">Connect With Me</h3>
+            <TypographyLabel className="text-xl font-semibold text-slate-800">
+              Connect With Me
+            </TypographyLabel>
             <div className="grid grid-cols-1 gap-4">
               {socialLinks.map((link) => (
                 <motion.div key={link.name} whileHover={{ scale: 1.03 }} className="group">
@@ -125,7 +113,9 @@ export const Contact = () => {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-800">Collaboration Opportunities</h3>
+            <TypographyLabel className="text-xl font-semibold text-slate-800">
+              Collaboration Opportunities
+            </TypographyLabel>
             <div className="space-y-4">
               {collaborationTypes.map((item, index) => (
                 <motion.div
@@ -152,9 +142,9 @@ export const Contact = () => {
         </motion.div>
 
         <div className="text-center mt-16 pt-8 border-t border-slate-200">
-          <p className="text-slate-500 text-sm">
+          <TypographyP className="text-slate-500 text-sm">
             © {new Date().getFullYear()} Steven Chow. All rights reserved.
-          </p>
+          </TypographyP>
         </div>
       </div>
     </section>

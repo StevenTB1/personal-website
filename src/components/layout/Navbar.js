@@ -19,8 +19,8 @@ export const Navbar = () => {
   const isActive = (path) => router.pathname === path;
 
   return (
-    <header className="py-4 fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-      <nav className="flex items-center justify-between max-w-6xl mx-auto px-8">
+    <header className="py-4 fixed top-0 left-0 right-0 z-50 bg-slate-50 shadow-sm">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-8">
         <Link href="/" className="font-bold text-xl text-black">
           Steven Chow
         </Link>
@@ -31,7 +31,7 @@ export const Navbar = () => {
               key={link.path}
               href={link.path}
               className={cn(
-                'transition-colors hover:text-primary text-gray-800',
+                'transition-colors hover:text-primary text-gray-800 px-2 py-1 hover:bg-gray-300/80 rounded-sm',
                 isActive(link.path) ? 'font-semibold text-primary' : '',
               )}
             >
@@ -47,15 +47,15 @@ export const Navbar = () => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[250px] bg-white">
-            <div className="flex flex-col gap-4 mt-8">
+          <SheetContent side="right" className="w-[250px] bg-slate-50">
+            <div className="flex flex-col gap-4 mt-12 border-t border-slate-200 pt-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
                   className={cn(
-                    'text-lg transition-colors hover:text-primary text-gray-800',
-                    isActive(link.path) ? 'font-semibold text-primary' : '',
+                    'text-lg transition-colors hover:text-primary text-gray-800 mx-2 px-2 py-1 hover:bg-gray-300/80 rounded-sm',
+                    isActive(link.path) ? 'bg-gray-200/80 font-semibold text-primary' : '',
                   )}
                   onClick={() => setSheetOpen(false)}
                 >
