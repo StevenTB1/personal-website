@@ -35,16 +35,21 @@ import {
   SiArduino,
   SiAutodesk,
   SiGraphql,
+  SiJquery,
   SiMongodb,
   SiNextdotjs,
   SiSupabase,
-  SiTypescript,
+  SiAngular,
+  SiPython,
+  SiPytorch,
+  SiTensorflow,
+  SiCplusplus,
+  SiNumpy,
 } from 'react-icons/si';
-import { TbBrandThreejs } from 'react-icons/tb';
 
 const HeroSlide = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center py-20 px-6 relative w-full">
+    <div className="bg-slate-100 min-h-screen flex flex-col justify-center py-20 px-6 relative w-full">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <BackgroundAnimation />
       </div>
@@ -102,7 +107,7 @@ const HeroSlide = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 text-blue-600 border-blue-300 hover:bg-blue-100 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
+                className="h-10 w-10 bg-white text-blue-600 border-blue-300 hover:bg-blue-100 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
               >
                 <FaLinkedin className="h-6 w-6" />
               </Button>
@@ -111,7 +116,7 @@ const HeroSlide = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 text-slate-700 border-slate-300 hover:bg-slate-100 hover:border-slate-500 transition-all duration-300 transform hover:scale-105"
+                className="h-10 w-10 bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:border-slate-500 transition-all duration-300 transform hover:scale-105"
               >
                 <FaGithub className="h-6 w-6" />
               </Button>
@@ -150,23 +155,23 @@ const AboutSlide = () => {
   const technologies = {
     fullstack: [
       { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-800' },
+      { name: 'Angular', icon: SiAngular, color: 'text-red-600' },
+      { name: 'jQuery', icon: SiJquery, color: 'text-blue-600' },
       { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-600' },
       { name: 'Supabase', icon: SiSupabase, color: 'text-emerald-600' },
-      { name: 'Three.js', icon: TbBrandThreejs, color: 'text-slate-700' },
       { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500' },
-      { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
     ],
     tools: [
+      { name: 'C++', icon: SiCplusplus, color: 'text-blue-600' },
       { name: 'Git', icon: FaGitAlt, color: 'text-orange-700' },
       { name: 'Docker', icon: FaDocker, color: 'text-blue-600' },
       { name: 'Figma', icon: FaFigma, color: 'text-purple-600' },
-      { name: 'Arduino', icon: SiArduino, color: 'text-teal-600' },
     ],
-    mechanical: [
-      { name: 'AutoCAD', icon: SiAutodesk, color: 'text-red-600' },
-      { name: 'SolidWorks', icon: SiAutodesk, color: 'text-blue-700' },
-      { name: 'Fusion 360', icon: SiAutodesk, color: 'text-orange-600' },
-      { name: 'CNC Machining', icon: SiAutodesk, color: 'text-green-600' },
+    machinelearning: [
+      { name: 'Python', icon: SiPython, color: 'text-yellow-500' },
+      { name: 'PyTorch', icon: SiPytorch, color: 'text-red-500' },
+      { name: 'TensorFlow', icon: SiTensorflow, color: 'text-orange-500' },
+      { name: 'NumPy', icon: SiNumpy, color: 'text-blue-500' },
     ],
   };
 
@@ -200,7 +205,7 @@ const AboutSlide = () => {
                 </CardTitle>
                 <CardDescription className="text-slate-500">My journey so far</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-6">
                 <TypographyText className="text-slate-700 font-medium">
                   I'm a mechatronics engineer with a passion for building innovative solutions. I
                   have experience with both mechanical design and software development, combining
@@ -216,18 +221,13 @@ const AboutSlide = () => {
                 <div className="pl-4 border-l-2 border-blue-400 space-y-2 mt-4">
                   <div>
                     <TypographyLabel className="font-medium text-blue-700">
-                      Bachelor of Applied Science, Mechatronics Engineering
+                      Mechatronics Engineering, Bachelor of Applied Science
                     </TypographyLabel>
                     <TypographyP className="text-sm text-slate-600">
                       University of Waterloo • 2023 - present
                     </TypographyP>
                   </div>
                 </div>
-
-                <TypographyText className="text-slate-600 italic">
-                  When not coding or designing, I enjoy photography and building DIY electronics
-                  projects that blend art and technology.
-                </TypographyText>
               </CardContent>
             </Card>
           </motion.div>
@@ -267,13 +267,13 @@ const AboutSlide = () => {
 
                 <div className="space-y-2">
                   <TypographyLabel className="font-semibold text-xl text-slate-700 flex items-center gap-2">
-                    Mechanical
+                    ML / AI
                   </TypographyLabel>
                   <div className="grid grid-cols-2 gap-2">
-                    {technologies.mechanical.map((tech) => (
+                    {technologies.machinelearning.map((tech) => (
                       <div
                         key={tech.name}
-                        className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 hover:bg-red-50 transition-colors"
+                        className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 hover:bg-yellow-50 transition-colors"
                       >
                         <tech.icon className={`h-5 w-5 ${tech.color}`} />
                         <span className="text-sm text-slate-700">{tech.name}</span>
@@ -284,7 +284,7 @@ const AboutSlide = () => {
 
                 <div className="space-y-2">
                   <TypographyLabel className="font-semibold text-xl text-slate-700 flex items-center gap-2">
-                    Tools & Others
+                    Tools
                   </TypographyLabel>
                   <div className="grid grid-cols-2 gap-2">
                     {technologies.tools.map((tech) => (
